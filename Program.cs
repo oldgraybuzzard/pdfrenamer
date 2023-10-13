@@ -63,6 +63,9 @@ if (parentDirInfo != null && Directory.Exists(parentDirInfo.FullName))
       counter++;
 
       Console.WriteLine($"Successfully renamed to {newFilePath}");
+      // Log to CSV
+      string logEntry = $"\"{file}\",\"{newFilePath}\"\n";
+      File.AppendAllText(logFilePath, logEntry);
     }
     catch (Exception ex)
     {
